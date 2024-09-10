@@ -37,17 +37,14 @@ import retrofit2.Callback
 import retrofit2.Response
 
 @Composable
-fun CharacterDetails(modifier: NavHostController) {
-    var id by remember {
-        mutableStateOf("")
-    }
+fun CharacterDetails(characterId: Int) {
     var character by remember {
         mutableStateOf(Character())
     }
 
     val callCharacter = RetrofitFactory()
         .getCharacterService()
-        .getCharacterById(id.toInt())
+        .getCharacterById(characterId.toInt())
 
     callCharacter.enqueue(object : Callback<Character> {
         override fun onResponse(p0: Call<Character>, response: Response<Character>) {
@@ -66,7 +63,7 @@ fun CharacterDetails(modifier: NavHostController) {
     Surface(
         modifier = Modifier
             .fillMaxSize(),
-        color = Color(0xFF52DD6F)
+        color = Color(0xFF72BCDD)
     ) {
         Column (
             modifier = Modifier.padding(horizontal = 24.dp),

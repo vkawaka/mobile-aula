@@ -86,7 +86,7 @@ fun CharacterCard(controleDeNavegacao: NavHostController, character: Character){
             .height(100.dp)
             .clickable(
                 onClick = {
-                    controleDeNavegacao.navigate("id")
+                    controleDeNavegacao.navigate("characterDetails/${character.id}")
                 }
             ),
         colors = CardDefaults.cardColors(
