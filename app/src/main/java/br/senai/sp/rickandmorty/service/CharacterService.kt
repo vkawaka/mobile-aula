@@ -1,6 +1,7 @@
 package br.senai.sp.rickandmorty.service
 
 import br.senai.sp.rickandmorty.model.Character
+import br.senai.sp.rickandmorty.model.Episode
 import br.senai.sp.rickandmorty.model.Result
 import retrofit2.Call
 import retrofit2.http.Body
@@ -14,6 +15,9 @@ interface CharacterService {
 
     @GET("character")
     fun getAllCharacters(): Call<Result>
+
+    @GET("episode/{id}")
+    fun getEpisodeById(@Path("id") id:Int): Call<Episode>
 
     //Como fazer
     //@POST("character")
